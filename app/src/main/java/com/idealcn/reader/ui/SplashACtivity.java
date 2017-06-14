@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.idealcn.reader.R;
 import com.idealcn.reader.databinding.ActivitySplashBinding;
@@ -20,26 +22,32 @@ import com.idealcn.reader.listener.PerfectListener;
 public class SplashACtivity extends AppCompatActivity {
 
     private ActivitySplashBinding splashBinding;
+    //标记是否已经进入主界面
+    private boolean isToMain;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         splashBinding = DataBindingUtil.setContentView(this, R.layout.activity_splash);
 
-        splashBinding.setOnClick(new PerfectListener(){
 
+
+        splashBinding.setOnClick(new PerfectListener() {
             @Override
-            protected void noDoubleClick(View view) {
+            public void noDoubleClick(View view) {
                 toMain();
             }
         });
+
 
         new Handler().postDelayed(() -> toMain(), 3500);
     }
 
     private void toMain() {
+        if (isToMain)return;
         startActivity(new Intent(this,HomeActivity.class));
         finish();
         overridePendingTransition(R.anim.anim_splash_screen_in,R.anim.anim_splash_screen_out);
+        isToMain = true;
     }
 
 

@@ -28,5 +28,5 @@ public abstract class PerfectListener implements View.OnClickListener {
         lastViewId = v.getId();
     }
 
-    protected abstract void noDoubleClick(View view);
+    public abstract void noDoubleClick(View view);
 }

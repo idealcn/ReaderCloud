@@ -16,7 +16,7 @@
         >
 
         <TextView
-            android:onClick="onClick"
+            android:onClick="@{onClick}"
             android:textColor="#ffffff"
             android:textSize="15sp"
             android:gravity="center"
