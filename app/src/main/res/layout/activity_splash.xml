@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="onClick"
+            type="com.idealcn.reader.listener.PerfectListener"/>
+
+    </data>
+
+    <RelativeLayout
+        android:background="@drawable/img_transition_default"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:onClick="onClick"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="跳过"
+            android:background="@drawable/shape_btn_splash_escape"/>
+
+    </RelativeLayout>
+
+</layout>

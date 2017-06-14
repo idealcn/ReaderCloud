@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="user"
+            type="com.idealcn.reader.User"/>
+        <variable
+            name="holder"
+            type="com.idealcn.reader.adapter.home.HomeHolder"/>
+    </data>
+    <LinearLayout
+        android:paddingLeft="25dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.name}"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.phone}"/>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data class="com.idealcn.reader.binding.ActivityMainBinding">
+
+        <variable
+            name="sex"
+            type="String"/>
+
+        <variable
+            name="user"
+            type="com.idealcn.reader.User"/>
+
+        <variable
+            name="presente"
+            type="com.idealcn.reader.Presenter"/>
+
+        <import type="android.view.View"/>
+
+
+
+        <import type="java.util.List"/>
+        <variable
+            name="list"
+            type="List&lt;String&gt;"/>
+        <variable
+            name="listKey"
+            type="Integer"/>
+
+        <import type="android.view.View.OnClickListener"/>
+        <variable
+            name="onClick"
+            type="OnClickListener"/>
+
+        <variable
+            name="error"
+            type="Boolean"/>
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:text="@{user.name}"
+            android:onClick="@{presente::present}"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.name}"
+            android:onClick="@{(view) -> presente.present(view)}"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Presenter"
+            android:onClick="@{(view) -> presente.setUser(view,user)}"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ｏｎＣｌｉｃｋ"
+            android:onClick="@{onClick}"/>
+
+        <TextView
+            android:visibility="@{user.isMan?View.VISIBLE:View.INVISIBLE}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{sex}"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{list[listKey]}"/>
+
+        <TextView
+            android:text="@{user.phone}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{error?View.INVISIBLE:View.VISIBLE}"/>
+
+        <TextView
+          android:id="@+id/temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+
+        <include layout="@layout/phone_layout"
+            bind:user="@{user}"/>
+
+
+    </LinearLayout>
+</layout>
