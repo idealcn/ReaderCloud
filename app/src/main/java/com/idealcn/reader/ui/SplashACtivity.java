@@ -19,7 +19,7 @@ import com.idealcn.reader.listener.PerfectListener;
  * Created by ideal on 17-6-14.
  */
 
-public class SplashACtivity extends AppCompatActivity {
+public class SplashACtivity extends BaseActivity {
 
     private ActivitySplashBinding splashBinding;
     //标记是否已经进入主界面
@@ -27,7 +27,7 @@ public class SplashACtivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        splashBinding = DataBindingUtil.setContentView(this, R.layout.activity_splash);
+        splashBinding = (ActivitySplashBinding) binding;
 
 
 
@@ -40,6 +40,11 @@ public class SplashACtivity extends AppCompatActivity {
 
 
         new Handler().postDelayed(() -> toMain(), 3500);
+    }
+
+    @Override
+    protected int getLayout() {
+        return  R.layout.activity_splash;
     }
 
     private void toMain() {

@@ -22,14 +22,14 @@ import java.util.List;
  * Created by ideal on 17-6-14.
  */
 
-public class HomeActivity  extends AppCompatActivity {
+public class HomeActivity  extends BaseActivity {
 
     private ActivityHomeBinding homeBinding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        homeBinding =  DataBindingUtil.setContentView(this, R.layout.activity_home);
+        homeBinding = (ActivityHomeBinding) binding;
 
         homeBinding.homeListview.setLayoutManager(new LinearLayoutManager(this){
             @Override
@@ -59,6 +59,11 @@ public class HomeActivity  extends AppCompatActivity {
         HomeAdapter homeAdapter = new HomeAdapter(this,list);
 
         homeBinding.homeListview.setAdapter(homeAdapter);
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_home;
     }
 
 

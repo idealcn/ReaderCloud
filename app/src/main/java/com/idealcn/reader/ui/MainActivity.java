@@ -14,12 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private ActivityMainBinding mainBinding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mainBinding = (ActivityMainBinding) binding;
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         User user = new User("数据绑定");
         user.isMan = false;
@@ -43,5 +44,10 @@ public class MainActivity extends AppCompatActivity {
         mainBinding.setError(true);
 
         mainBinding.temp.setText("temp");
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_main;
     }
 }
